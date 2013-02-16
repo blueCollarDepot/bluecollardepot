@@ -674,3 +674,7 @@ img.hrcImg
 }
 
 #mainContentArea{padding:0 10px;}
+
+#copyright a {
+    color: #FFFFFF;
+}
