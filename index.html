@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Blue Collar Depot</title>
+<title>Blue Collar Depot Demo</title>
 
 <meta name="description" content="" id='metaDescription' />
 <meta name="keywords" content="" id='metaKeywords' />
@@ -12,7 +12,7 @@
 <meta property="og:description" content="" id='ogDescription' />
 
 
-<base href='' /><!-- leave blank so it works for a local file -->
+<base href='http://www.867e51a5f.hoth.zoovy.net' /><!-- leave blank so it works for a local file -->
 
 
 
@@ -20,30 +20,14 @@
 var _gaq = _gaq || {'push':function(){}} //here for testing. REPLACE BEFORE DEPLOYMENT!
 var myCreole;
 
-/*var app = {vars:{
-	"release":"201210270525",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
-	"baseURL":"",
-	"httpsURL":"https://ssl.zoovy.com/s=www.sporks.zoovy.com/",
-	"httpURL":"http://www.sporks.zoovy.com/"
-	},u:{},rq:[]};*/
-/*var app = {vars:{ 
-	"release":"20121206122900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
-	"baseURL":"",
-	"httpsURL":"https://ssl.zoovy.com/s=www.stage3motorsports.com/",
-	"httpURL":"http://www.stage3motorsports.com/"
-	},u:{},rq:[]};*/
+
 var app = {vars:{ 
-	"release":"20130216224500",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130216225800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
 	"httpsURL":"https://ssl.zoovy.com/s=www.bluecollardepot.com/",
 	"httpURL":"http://www.bluecollardepot.com/"
 	},u:{},rq:[]};
-/*var app = {vars:{ 
-	"release":"20121206122900",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
-	"baseURL":"",
-	"httpsURL":"https://ssl.zoovy.com/s=55ba36a5fb.pop.zoovy.net/",
-	"httpURL":"http://www.55ba36a5fb.pop.zoovy.net/"
-	},u:{},rq:[]};*/
+
 	
 //set base url so images, css, js, etc all load from appropriate location once deployed.
 //baseURL as blank lets loadScript function run off local copy when testing locally.
@@ -59,16 +43,25 @@ all css includes need to be after the js that changes the base url.
 css files should be included before any .js file to ensure they are downloaded in parallel
 -->
 <link rel="stylesheet" type="text/css" href="qs_styles.css" />
-<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/themes/redmond/jquery-ui.css" />
-<link rel="stylesheet" href="site/styles/reset.css" />
-<link rel="stylesheet" href="site/styles/blueCollarDepot.css" />
-<!--[if IE]><link rel="stylesheet" href="site/styles/blueCollarDepot_ie.css" /><![endif]-->
+<link rel="stylesheet" type="text/css" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/redmond/jquery-ui.css" />
+<link rel="stylesheet"href="code/css/reset.css"  >
+<!--<link rel="stylesheet"href="code/css/text.css" >
+<link rel="stylesheet"href="code/css/960.css" >-->
+<link rel="stylesheet" href="http://www.867e51a5f.hoth.zoovy.net/code/css/blueCollarDepot.css">
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<!--[if lt IE 8]><link rel="stylesheet" href="../../blueprint/ie.css" type="text/css" media="screen, projection"><![endif]-->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script type="text/javascript" src="loadscript.js"></script>
+<!--<script type="text/javascript" src="slides.min.jquery.js"></script>-->
+<script type="text/javascript" src="jquery.cycle.all.js"></script>
 <script type="text/javascript" src="jquery.ui.widget.min.js"></script> 
 <script type="text/javascript" src="customTabs.js"></script>
-<script type="text/javascript" src="site/scripts/jquery.cycle.all.js"></script>
+
+
+
 
 <script type="text/javascript">
 app.u.loadScript(app.vars.baseURL+"init.js");
@@ -82,144 +75,151 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
 <table>
-	<tr>
-		<td>
-			<img src="site/images/blue-collar-depot-logo.png" alt="Blue Collar Depot Logo" />
-		</td>
-	</tr>
-	<tr>
-		<td>
-		<h3>One moment please.</h3> 
-		 
-		<div class='alignCenter'>
-		<progress id="appPreViewProgressBar" max="100" value="0" /><br />
-		</div>
-		<div id='appPreViewProgressText'>0% Complete</div>
-		 
-		<div class='appMessaging'class='displayNone'></div>
-		</td>
-	</tr>
+<tr>
+	<td><!-- put logo here 
+    <img src="img/BlueCollarDepot_D04a3a1_a.gif" width="389" height="233" alt="img">--></td>
+	<td>
+	<h3>One moment please.</h3> 
+	
+	<div class='alignCenter'>
+	<progress id="appPreViewProgressBar" max="100" value="0" /><br />
+	</div>
+	<div id='appPreViewProgressText'>0% Complete</div>
+	
+	<div class='appMessaging'class='displayNone'></div>
+	</td>
+</tr>
 </table>
-</div> 
+</div>
 
 
 
 	<div id='appView' class='displayNone'>
 		<div id="header">
 			<div id="headerContent">
-				<ul id="userNav">
-					<li><a href="#" onClick="return showContent('customer',{'show' : 'myaccount'});">My Account</a>|</li>
-					<li><a href="#" onclick="showContent('company',{'show':'contact'});">Contact</a>|</li>
-					<li><a href="#" onClick="return showContent('customer',{'show' : 'lists'});">Wish Lists</a>|</li>
-					<li><a href="#" onClick="return showContent('category',{'navcat' : '.gift-certificates'});">Gift Certificates</a></li>
-				</ul>
 				<a id="logo" href="#" onClick="return showContent('category',{'navcat' : '.'});">
-					<img src="site/images/blue-collar-depot-logo.png" alt="Blue Collar Depot Logo" />
+						<img src="img/blue-collar-depot-logo.png" alt="Blue Collar Depot Logo" />
 				</a>
-				<p id="callUs">
-					Call us on (877) 855-8566
-				</p>
-				<div id="info">
-					<img src="site/images/info-free-returns.png" alt="Free Returns on Products Exchanges" onclick="showContent('company',{'show':'returns'});"/>
-					<img src="site/images/info-best-price-guaranteed.png" alt="120% Price Watch - Best Price Guaranteed" onClick="return showContent('category',{'navcat' : '.price-watch'});" />
-					<a href="#" onClick="return showContent('cart',{});"><img src="site/images/info-view-cart.png" alt="View Cart" /></a>
-				</div>
-				<div id="nav">
-					<div id="menu">
-						<ul>
-							<li><a href="#" onClick="return showContent('category',{'navcat' : '.'});">Home</a></li>
-							<li>
-								<a href="#" onClick="return showContent('category',{'navcat' : '.automotive'});">Automotives</a>
-								<div class="subMenu">
-									<ul>
-										<li><a href="#">Accessories</a></li>
-										<li><a href="#">Hats & Caps</a></li>
-										<li><a href="#">Jerseys</a></li>
-										<li><a href="#">Shirts</a></li>
-										<li><a href="#">Sweatshirts & Jackets</a></li>
-										<li><a href="#">Personalized Gear</a></li>
-										<li><a href="#">Team Clothing & Apparel</a></li>	
-									</ul>
-								</div>
-							</li>
-							<li>
-								<a href="#" onClick="return showContent('category',{'navcat' : '.industrial'});">Industrial</a>
-								<div class="subMenu">
-									<ul>
-										<li><a href="#">Accessories</a></li>
-										<li><a href="#">Hats & Caps</a></li>
-										<li><a href="#">Jerseys</a></li>
-										<li><a href="#">Shirts</a></li>
-										<li><a href="#">Sweatshirts & Jackets</a></li>
-										<li><a href="#">Personalized Gear</a></li>
-										<li><a href="#">Team Clothing & Apparel</a></li>	
-									</ul>
-								</div>
-							</li>
-							<li>
-								<a href="#" onClick="return showContent('category',{'navcat' : '.flame-resistant'});">Flame Resistant
-								</a>
-								<div class="subMenu">
-									<ul>
-										<li><a href="#">Accessories</a></li>
-										<li><a href="#">Hats & Caps</a></li>
-										<li><a href="#">Jerseys</a></li>
-										<li><a href="#">Shirts</a></li>
-										<li><a href="#">Sweatshirts & Jackets</a></li>
-										<li><a href="#">Personalized Gear</a></li>
-										<li><a href="#">Team Clothing & Apparel</a></li>	
-									</ul>
-								</div>
-							</li>
-							<li>
-								<a href="#" onClick="return showContent('category',{'navcat' : '.restaurant'});">Restaurant</a>
-								<div class="subMenu">
-									<ul>
-										<li><a href="#">Accessories</a></li>
-										<li><a href="#">Hats & Caps</a></li>
-										<li><a href="#">Jerseys</a></li>
-										<li><a href="#">Shirts</a></li>
-										<li><a href="#">Sweatshirts & Jackets</a></li>
-										<li><a href="#">Personalized Gear</a></li>
-										<li><a href="#">Team Clothing & Apparel</a></li>										
-									</ul>
-								</div>
-							</li>
-							<li>
-								<a href="#" onClick="return showContent('category',{'navcat' : '.embroidery'});">Embroidery</a>
-								<div class="subMenu">
-									<ul>
-										<li><a href="#">Accessories</a></li>
-										<li><a href="#">Hats & Caps</a></li>
-										<li><a href="#">Jerseys</a></li>
-										<li><a href="#">Shirts</a></li>
-										<li><a href="#">Sweatshirts & Jackets</a></li>
-										<li><a href="#">Personalized Gear</a></li>
-										<li><a href="#">Team Clothing & Apparel</a></li>	
-									</ul>
-								</div>
-							</li>
+				<div class="header_right">
+					<div class="header_right_top">
+						<div class="header_free_shipping">
+							<h4><a href="#">Free Shipping</a></h4>
+							<p>on orders of <span>$48</span> and more</p>
+						</div>
+						<ul id="userNav">
+							<li><a href="#" onClick="return showContent('customer',{'show' : 'myaccount'});">My Account</a>|</li>
+							<li><a href="#" onClick="showContent('company',{'show':'contact'});">Contact</a>|</li>
+							<li><a href="#" onClick="return showContent('customer',{'show' : 'lists'});">Wish Lists</a>|</li>
+							<li><a href="#" onClick="return showContent('category',{'navcat' : '.gift-certificates'});">Gift Certificates</a>|</li>
+							<li><a href="#" onClick="return showContent('customer',{'show' : 'myaccount'});">Sign in or Create an account</a></li>
 						</ul>
+						
+						<p id="callUs">
+							<span>Call us on</span> (877) 855-8566
+						</p>
 					</div>
-					<div id="search">
-						<img id="searchBox" src="site/images/search-box.png" alt="Search Box" />
-						<img id="btnSearch" src="site/images/search-white.png" alt="Search Button" />
-						<form id="headerSearchFrm" name="headerSearchFrm" action="#" class="productSearchForm" method="get">
-							<input id="txtSearch" name="KEYWORDS" type="text" value="Search..." class="productSearchKeyword handleDefault" />
-						</form>
+					<div class="header_right_bottom">
+						<div id="info">
+							<img src="img/free_returns.jpg" alt="Free Returns on Products Exchanges" onClick="showContent('company',{'show':'returns'});"/>
+							<img src="img/price_match.jpg" alt="120% Price Watch - Best Price Guaranteed" onClick="return showContent('category',{'navcat' : '.price-watch'});" />
+							<div class="top_extra_shop" id="top_cart_count">
+							<p><a href="#" onClick="return showContent('cart',{});" class="cart_item"><span class="cartItemCount">0</span> Items</a>
+							<span class="cartSubtotal"><span>$0.00</span></span>
+							<a href="#" onClick="showContent('checkout',{});" class="top_extra_checkout">Checkout</a></p>
+						</div>
+							
+						</div>
 					</div>
 				</div>
-			</div>
+				
+			</div><div class="nav_wrap">
+					<div id="nav">
+						<div id="menu">
+							<ul>
+								<li><a href="#" onClick="return showContent('category',{'navcat' : '.'});">Home</a></li>
+								<li>
+									<a href="#" onClick="return showContent('category',{'navcat' : '.automotive'});">Automotives</a>
+									<ul class="subMenu">
+										<li><a href="#">Accessories</a></li>
+										<li><a href="#">Hats & Caps</a></li>
+										<li><a href="#">Jerseys</a></li>
+										<li><a href="#">Shirts</a></li>
+										<li><a href="#">Sweatshirts & Jackets</a></li>
+										<li><a href="#">Personalized Gear</a></li>
+										<li><a href="#">Team Clothing & Apparel</a></li>	
+									</ul>
+								</li>
+								<li>
+									<a href="#" onClick="return showContent('category',{'navcat' : '.industrial'});">Industrial</a>
+									<ul class="subMenu">
+										<li><a href="#">Accessories</a></li>
+										<li><a href="#">Hats & Caps</a></li>
+										<li><a href="#">Jerseys</a></li>
+										<li><a href="#">Shirts</a></li>
+										<li><a href="#">Sweatshirts & Jackets</a></li>
+										<li><a href="#">Personalized Gear</a></li>
+										<li><a href="#">Team Clothing & Apparel</a></li>	
+									</ul>
+								</li>
+								<li>
+									<a href="#" onClick="return showContent('category',{'navcat' : '.flame-resistant'});">Flame Resistant
+									</a>
+									<ul class="subMenu">
+										<li><a href="#">Accessories</a></li>
+										<li><a href="#">Hats & Caps</a></li>
+										<li><a href="#">Jerseys</a></li>
+										<li><a href="#">Shirts</a></li>
+										<li><a href="#">Sweatshirts & Jackets</a></li>
+										<li><a href="#">Personalized Gear</a></li>
+										<li><a href="#">Team Clothing & Apparel</a></li>	
+									</ul>
+								</li>
+								<li>
+									<a href="#" onClick="return showContent('category',{'navcat' : '.restaurant'});">Restaurant</a>
+									<ul class="subMenu">
+										<li><a href="#">Accessories</a></li>
+										<li><a href="#">Hats & Caps</a></li>
+										<li><a href="#">Jerseys</a></li>
+										<li><a href="#">Shirts</a></li>
+										<li><a href="#">Sweatshirts & Jackets</a></li>
+										<li><a href="#">Personalized Gear</a></li>
+										<li><a href="#">Team Clothing & Apparel</a></li>	
+									</ul>
+								</li>
+								<li>
+									<a href="#" onClick="return showContent('category',{'navcat' : '.embroidery'});">Embroidery</a>
+									<ul class="subMenu">
+										<li><a href="#">Accessories</a></li>
+										<li><a href="#">Hats & Caps</a></li>
+										<li><a href="#">Jerseys</a></li>
+										<li><a href="#">Shirts</a></li>
+										<li><a href="#">Sweatshirts & Jackets</a></li>
+										<li><a href="#">Personalized Gear</a></li>
+										<li><a href="#">Team Clothing & Apparel</a></li>	
+									</ul>
+								</li>
+							</ul>
+						</div>
+						<div id="search">
+							<form id="headerSearchFrm" name="headerSearchFrm" action="#" class="productSearchForm" method="get">
+								<input id="txtSearch" name="KEYWORDS" type="text" value="Search..." class="productSearchKeyword handleDefault" />
+							</form>
+							<img id="btnSearch" src="img/go_button.png" alt="Search Button" />
+						</div>
+					</div>
+				</div>
+			
 		</div>
+		
 		<div id="content">
 			<div id="contentBody">
 				<div class="slideShowContainer">
 					<div class="slideShow">
-						<img class="slidePic" src="site/images/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
-						<img class="slidePic" src="site/images/blue-collar-depot-slideshow-2.png" alt="Blue Collar Depot Slideshow" />
+						<img class="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
+						<img class="slidePic" src="img/blue-collar-depot-slideshow-2.png" alt="Blue Collar Depot Slideshow" />
 					</div>
-					<a class="slideBackButton" href="#"><img src="site/images/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" /></a>
-					<a class="slideForwardButton" href="#"><img src="site/images/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" /></a>		
+					<a class="slideBackButton" href="#"><img src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" /></a>
+					<a class="slideForwardButton" href="#"><img src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" /></a>		
 				</div>
 				<!-- VIEW CONTENT -->
 				<!-- leave the appView div, put your your html here ...  -->
@@ -240,130 +240,119 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 			</div>
 		</div>
 		<div id="footer">
-			<div id="footerContent">
+			<div class="footer_top">
 				<div id="footModals">
 					<div class="footModal">
 						<p>Business To Business</p>
 						<div>
-							<p>We supply directly to businesses, schools, local and state government. <a href="#" onClick="return showContent('category',{'navcat' : '.b2b'});">Learn more &#187;</a></p>
-							<img src="site/images/read-more.png" alt="Read more" onClick="return showContent('category',{'navcat' : '.b2b'});" />
+							<p>We supply directly to businesses, schools, local and state government. <a href="#" onClick="return showContent('category',{'navcat' : '.b2b'});">Learn more »</a></p>
+							<ul class="footer_tab_list">
+								<li><a href="#">Volume Discounts</a></li>
+								<li><a href="#">Embroidery</a></li>
+								<li><a href="#">Free Shipping</a></li>
+							</ul>
 						</div>
 					</div>
 					<div class="footModal">
 						<p>Free Shipping & Returns</p>
 						<div>
-							<p>We supply directly to Get FREE SHIPPING on all orders of $48 or More! Save Gas and shop online for FREE SHIPPING! Blue Collar Depot offers FREE RETURNS for exchanges! businesses, schools, local and state government.</p>
-							<img src="site/images/read-more.png" alt="Read more" onClick="return showContent('category',{'navcat' : '.return-policy'});" />
+							<p>We supply directly to Get FREE SHIPPING on all orders of $48 or More! Save Gas and shop online for FREE SHIPPING! Blue Collar Depot offers FREE RETURNS for exchanges! businesses, schools, local and state government. <a href="#"  onClick="return showContent('category',{'navcat' : '.return-policy'});">Learn more »</a></p>
+							
 						</div>
 					</div>
 					<div class="footModal">
 						<p>Free Coupons And Deals!</p>
 						<div>
 							<p>Love saving money? Subscribe to our email newsletter and receive free coupons and discount offers in your email!</p>
-							<!--<img src="site/images/read-more.png" alt="Read more" onClick="return showContent('customer',{'show' : 'newsletter'});" />-->
+							<!--<img src="img/read-more.png" alt="Read more" onClick="return showContent('customer',{'show' : 'newsletter'});" />-->
 							<!--<div id="dealsJoin">
 								<form id="frmDeals" name="frmDeals" method="get" action="">
 									<input id="txtDealsEmail" name="txtDealsEmail" type="text" />
-									<img id="btnDealsJoin" src="site/images/button-join-now.png" alt="Join Newsletter" />
+									<img id="btnDealsJoin" src="img/button-join-now.png" alt="Join Newsletter" />
 								</form>
 								<div id="dealsSubmit"></div>	
 							</div>-->
 							<div id="footForm">
-								<form onsubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false" name="subscribeFrm" id="subscribeFrm" action="#">
+								<form onSubmit="app.ext.store_crm.u.handleSubscribe('subscribeFrm'); return false" name="subscribeFrm" id="subscribeFrm" action="#">
 									<fieldset class="userInfo borderNone">
 										<table>
 											<tr>
 												<td>
-													<label for="subscribeLogin">Email Address</label>
-												</td>
-												<td>
-													<input type="email" value="" id="subscribeLogin" name="login" size="30" maxlength="50" />		
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<label for="subscribeFullname">Full Name</label>
-												</td>
-												<td>
-													<input type="text" value="" id="subscribeFullname" name="fullname" size="30" maxlength="50" />
+													<input type="email" value="" id="subscribeLogin" name="login" size="30" maxlength="50" placeholder="Email Address" />
+													<input type="hidden" value="User" id="subscribeFullname" name="fullname" size="30" maxlength="50" />
+														<fieldset class="borderNone subscriberLists" style="display:none;" data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;"><ul class="subscriberLists"><li title="undefined"><input type="checkbox" id="newsletter-1" name="newsletter-1" checked="checked"><label for="newsletter-1">Store Newsletter</label></li></ul></fieldset>
+													<input id="btnSubmit" type="submit" value="Subscribe" class="ui-button-text ui-button ui-state-default ui-corner-all" />		
 												</td>
 											</tr>
+											
+													
+												
 										</table>
 									</fieldset>
 									
-									<fieldset class="borderNone subscriberLists" data-bind="var:newsletters(@lists); format:subscribeCheckboxes; extension:store_crm;"><ul class="subscriberLists"><li title="undefined"><input type="checkbox" id="newsletter-1" name="newsletter-1" checked="checked"><label for="newsletter-1">Store Newsletter</label></li></ul></fieldset>
+								
 									
-									<input id="btnSubmit" type="submit" value="Subscribe" class="ui-button-text ui-button ui-state-default ui-corner-all" />
+									
 	
 								</form>
 							</div>
 						</div>
 					</div>										
 				</div>
-				<div id="spacer"></div>
+			</div>
+			<div id="footerContent">
+				
 				<div id="footInfo">
-					<div id="links">
-						<table>
-							<tr>
-								<th>Shop With Us</th>
-							</tr>
-							<tr>
-								<td><a href="#" onClick="return showContent('category',{'navcat' : '.laundry-care'});">Laundry Care</a></td>
-							</tr>
-							<tr>
-								<td><a href="#" onClick="return showContent('category',{'navcat' : '.mail-orders'});">Mail Orders</a></td>
-							</tr>
-							<tr>
-								<td><a href="#" onClick="return showContent('category',{'navcat' : '.measure_guide'});">Measurement Guidelines</a></td>
-							</tr>
-							<tr>
-								<td><a href="#">Payment Options</a></td>
-							</tr>
-							<tr>
-								<td><a href="#" onclick="showContent('company',{'show':'privacy'});">Privacy & Security</a></td>
-							</tr>
-						</table>
-						<table>
-							<tr>
-								<th>Your Account</th>
-							</tr>
-							<tr>
-								<td><a href="#">Returns & Exchanges</a></td>
-							</tr>
-							<tr>
-								<td><a href="#">Shipping Information</a></td>
-							</tr>
-							<tr>
-								<td><a href="#">Order History</a></td>
-							</tr>
-							<tr>
-								<td><a href="#" onClick="return showContent('category',{'navcat' : '.volume-purchase'});">Volume Purchases</a></td>
-							</tr>
-							<tr>
-								<td><a href="#" onClick="return showContent('category',{'navcat' : '.wholesale'});">Wholesale Purchases</a></td>
-							</tr>
-						</table>
-						<table>
-							<tr>
-								<th>Our Offers</th>
-							</tr>
-							<tr>
-								<td><a href="#" onClick="return showContent('category',{'navcat' : '.new-releases'});">New Products</a></td>
-							</tr>
-							<tr>
-								<td><a href="#" onclick="showContent('company',{'show':'contact'});">Customer Service</a></td>
-							</tr>
-							<tr>
-								<td><a href="#">Shipping</a></td>
-							</tr>
-							<tr>
-								<td><a href="#">Returns</a></td>
-							</tr>
-						</table>						
-					</div>
-					<img id="fbLink" src="site/images/facebook-fan-page.png" alt="Facebook Fan Page" onClick="return showContent('category',{'navcat' : '.'});" />
-					<p id="copyright">All prices are in USD. Copyright &copy; 2012.  Please read our <a onclick="showContent('company',{'show':'privacy'});" href="#">Privacy Policy</a>.<br />
-			E-Commerce solution provided by Zoovy.</p>
+					<div class="footer_top_links">
+						<ul class="footer_top_links1">
+						<h4>Customer Service</h4>
+						<li><span><a title="About Us" href="#"><span>About Us</span></a></span>
+						</li>
+						<li><span><a title="Catalogs" href="#"><span>Catalogs</span></a></span>
+						</li>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Email Manager</a></li>
+						<li><span><a title="FAQ" href="#"><span>FAQ</span></a></span>
+						</li>
+						</ul>
+						<ul class="footer_top_links2">
+						<h4>Shop With Us</h4>
+						<li><span><a title="Laundry Care" href="#"><span>Laundry Care</span></a></span>
+						</li>
+						<li><span><a title="Mail Orders" href="#"><span>Mail Orders</span></a></span>
+						</li>
+						<li><span><a title="Measurement Guidelines" href="#"><span>Measurement Guidelines</span></a></span>
+						</li>
+						<li><span><a title="Payment Options" href="#"><span>Payment Options</span></a></span>
+						</li>
+						<li><span><a title="Privacy &amp; Security" href="#"><span>Privacy &amp; Security</span></a></span>
+						</li>
+						</ul>
+						<ul class="footer_top_links3">
+						<h4>Services</h4>
+						<li><span><a title="Returns &amp; Exchanges" href="#"><span>Returns &amp; Exchanges</span></a></span>
+						</li>
+						<li><span><a title="Shipping Information" href="#"><span>Shipping Information</span></a></span>
+						</li>
+						<li><a href="#">Order History</a></li>
+						<li><a href="#">Volume Purchases</a></li>
+						<li><span><a title="Wholesale Purchases" href="#"><span>Wholesale Purchases</span></a></span>
+						</li>
+						</ul>
+						<ul class="footer_top_links4">
+						<h4>Company Information</h4>
+						<li><span><a title="B2BPricing" href="#"><span>B2BPricing</span></a></span>
+						</li>
+						<li><span><a title="Customer Service" href="#"><span>Customer Service</span></a></span>
+						</li>
+						<li><span><a title="Shipping" href="#"><span>Shipping</span></a></span>
+						</li>
+						<li><span><a title="Returns" href="#"><span>Returns</span></a></span>
+						</li></ul>
+						</div>
+						<img id="fbLink" src="img/facebook-fan-page.png" alt="Facebook Fan Page" onClick="return showContent('category',{'navcat' : '.'});" />
+											<p id="copyright">All prices are in USD. Copyright &copy; 2012.  Please read our <a onClick="showContent('company',{'show':'privacy'});" href="#">Privacy Policy</a>.<br />
+									E-Commerce solution provided by Zoovy.</p>
 				</div>
 			</div>
 		</div>
@@ -416,9 +405,8 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 		
 		<!--<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 		<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
-	
 		<div id="bestSellerItems">
-			<img src="site/images/blue-collar-depot-content-popular-work-uniform.png" alt="Popular Work Uniform" />
+			<img src="img/blue-collar-depot-content-popular-work-uniform.png" alt="Popular Work Uniform" />
 			<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","query":{"query_string":{"query":"shirts"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 			<!--<ul id='homeProdSearchBestSellers' data-bind='var: elastic-native({"size":"4","mode":"elastic-native","filter":{"term":{"tags":"best-seller"}}}); format: productSearch; extension: myRIA; loadsTemplate: productListTemplateResults; before:<h2>Best Sellers</h2>;' class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>-->
 		</div>
@@ -505,9 +493,9 @@ remember to NOT put the button inside the 'onclick' container or two events will
 		</div>
 		
 		<h5 data-bind='var: product(zoovy:prod_name); format:text;'></h5>
-	
-		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
 		
+		<h6 data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; className:price; pretext: Our Price: ;'></h6>
+		<p data-bind='var: product(zoovy:prod_msrp); format:text; pretext:Mfg: ;'></p>
 		
 		<span data-bind='var: product(reviews.average); format:addClass; className:review_;' class='reviewSprite'></span>
 <!-- 	<span data-bind='var: reviews(total); format:text; pretext: from ;posttext: reviews; className:numReviews;'></span> -->
@@ -641,8 +629,18 @@ this will likely become more flexible in the future. ###
 <div id='productTemplate'>
 
 <ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-
-<table class='prodViewerContainer'>
+<table>
+  <tr>
+    <td class="product_left">
+		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'><li id="categoryHeader">CATEGORIES</li></ul>
+		
+<!-- MENU
+FORMAT=<a href="%URL%" target="%TARGET%">%MESSAGE%</a><br>
+ONLYHOME=0
+NOHOME=1
+-->
+	</td>
+	<td class="product_right"><table class='prodViewerContainer'>
 <tr>
 	<td class='imageContainer'>
 <!--	<img src='%PROJECT_URL%/blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox;' width='340' height='340' /> -->
@@ -770,7 +768,11 @@ this will likely become more flexible in the future. ###
 
 	</td>
 </tr>
+</table></td>
+  </tr>
 </table>
+
+
 <div class='prodlistRelatedContainer'>
 	<ul class='listStyleNone fluidList clearfix noPadOrMargin productList' data-bind="var: product(zoovy:related_products); format:productList; extension:store_prodlist;loadsTemplate:productListTemplate;hide_pagination:true;hide_summary:true; before:<h2>Similar Items</h2>; withReviews:1;"></ul>
 </div>
@@ -1657,7 +1659,7 @@ The 'data-action' attribute is used to assign an onclick.
 
 
 </div>
-<script type="text/javascript" src="site/scripts/jquery_actions.js"></script>
+<script type="text/javascript" src="actions.js"></script>
 
 </body>
 </html>
