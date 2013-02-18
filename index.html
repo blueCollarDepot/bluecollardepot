@@ -213,14 +213,7 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 		
 		<div id="content">
 			<div id="contentBody">
-				<div class="slideShowContainer">
-					<div class="slideShow">
-						<img class="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
-						<img class="slidePic" src="img/blue-collar-depot-slideshow-2.png" alt="Blue Collar Depot Slideshow" />
-					</div>
-					<a class="slideBackButton" href="#"><img src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" /></a>
-					<a class="slideForwardButton" href="#"><img src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" /></a>		
-				</div>
+				
 				<!-- VIEW CONTENT -->
 				<!-- leave the appView div, put your your html here ...  -->
 				
@@ -411,7 +404,14 @@ COMMONLY EDITED TEMPLATES
 the homepageTemplate template is loaded into mainContentArea by default when the application loads
 -->
 <div id='homepageTemplate'>
-	
+	<div class="slideShowContainer">
+					<div class="slideShow">
+						<img class="slidePic" src="img/blue-collar-depot-slideshow-1.png" alt="Blue Collar Depot Slideshow" />
+						<img class="slidePic" src="img/blue-collar-depot-slideshow-2.png" alt="Blue Collar Depot Slideshow" />
+					</div>
+					<a class="slideBackButton" href="#"><img src="img/blue-collar-depot-slideshow-button-back.png" alt="Blue Collar Depot Slideshow Back Button" /></a>
+					<a class="slideForwardButton" href="#"><img src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" /></a>		
+				</div>
 	<div class="homeProducts">
 		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'><li id="categoryHeader">CATEGORIES</li></ul>
 		
@@ -639,12 +639,11 @@ this will likely become more flexible in the future. ###
 
 
 <div id='productTemplate'>
-
 <ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 <table>
   <tr>
     <td class="product_left">
-		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'><li id="categoryHeader">CATEGORIES</li></ul>
+		<ul data-bind="var: product(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
 		
 <!-- MENU
 FORMAT=<a href="%URL%" target="%TARGET%">%MESSAGE%</a><br>
@@ -660,29 +659,29 @@ NOHOME=1
 <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
 
 	<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
-	<img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='340' height='340' />
-
+	<img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='290' height='290' />
+	<img class="hrcImg" src='blank.gif' data-bind="var: product(user:prod_hazardrisk); format:hrcImgFormat;" />
 </div>
 
 	<div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
 	
-<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='100' height='100' /></div>
+<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"2"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image2); format:imageURL;' width='48' height='48' /></div>
 	
-<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='100' height='100' /></div>
+<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"3"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image3); format:imageURL;' width='100' height='48' /></div>
 	
-<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='100' height='100' /></div>
+<div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).parent().attr("data-pid"),"int":"4"});' class='pointer'><img src='blank.gif' data-bind='var: product(zoovy:prod_image4); format:imageURL;' width='48' height='48' /></div>
 	
 	</div>
 
 	</td>
 
 	<td class='prodSummaryContainer marginBottom no_underline'>
-	<img class="hrcImg" src='blank.gif' data-bind="var: product(user:prod_hazardrisk); format:hrcImgFormat;" />
+	
 	<h1 data-bind='var: product(zoovy:prod_name); format:text;'></h1>
 	
-	<h5 class='stid' data-bind='var: product(pid); format:text; pretext: Sku: ;'></h5>
-	<h5 data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: Mfg: ;'></h5>
-	<h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: Mfg ID: ;'></h5>
+	<h5 class='stid' data-bind='var: product(pid); format:text; pretext: <b>Sku:</b> ;'></h5>
+	<h5 data-bind='var: product(zoovy:prod_mfg); format:searchLink; extension:myRIA; pretext: <b>Mfg:</b> ;'></h5>
+	<h5 data-bind='var: product(zoovy:prod_mfgid); format:text; pretext: <b>Mfg ID:</b> ;'></h5>
 	
 	
 	<div class='priceContainer'>
@@ -704,7 +703,7 @@ NOHOME=1
 	<form data-bind='var: product(pid); format:atcForm; extension:store_product;' class='prodViewerAddToCartForm clearfix' action='#' onSubmit="app.ext.myRIA.u.handleAddToCart($(this),{'action':'modal'}); return false;">
 	
 		<fieldset data-bind='var: product(pid); format:atcVariations; extension:store_product;' class='borderNone'></fieldset>
-		<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product; pretext:Quantity: ;' class='borderNone'></fieldset>
+		<fieldset data-bind='var: product(pid); format:atcQuantityInput; extension:store_product; pretext:<b>Quantity:</b> ;' class='borderNone'></fieldset>
 	
 		<input type='submit' value='Add to Cart' class='ui-button ui-button-text ui-corner-all ui-state-default addToCartButton displayNone' data-bind='var: product(pid); format:addToCartButton; extension:store_product;' id='addToCartBtn' />
 	</form>

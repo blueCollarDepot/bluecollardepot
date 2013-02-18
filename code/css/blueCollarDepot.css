@@ -113,7 +113,7 @@ div#header
 						{
 							color: #fff;
 							outline: 0px;
-							padding: 11px 20px 12px 20px!important;
+							padding: 11px 20px 11px 20px!important;
 							text-decoration: none;
 							display:inline-block;
 							font-weight:bold;
@@ -134,7 +134,9 @@ div#header
 						display: none;
 						left: 0px;
 						position: absolute;
-						top: 39px;
+						top: 38px;
+						border-left:1px solid #084186;
+						border-right:1px solid #084186;
 					}					
 						div#header div#nav div#menu > ul li ul.subMenu li
 						{
@@ -253,11 +255,10 @@ div#content
 			div#homepageTemplate_ div.slideShowContainer a.slideBackButton
 			{
 				cursor: pointer;
-				left: 38px;
+				left: 18px;
 				position: absolute;
-				top: 183px;
+				top: 133px;
 				z-index: 1000;
-				
 				opacity: .66;
 				filter:alpha(opacity=66);
 			}
@@ -265,10 +266,9 @@ div#content
 			{
 				cursor: pointer;
 				position: absolute;
-				right: 38px;
-				top: 183px;
+				right: 18px;
+				top: 133px;
 				z-index: 1000;
-				
 				opacity: .66;
 				filter:alpha(opacity=66);
 			}				
@@ -366,7 +366,7 @@ div#footer
 					}
 					div#footer div#footModals div.footModal div input#btnSubmit
 					{
-						background:url(../../img/footer_subscribe_but.png) no-repeat scroll 0 0;
+						background:url(../../img/footer_subscribe_but.png) no-repeat scroll 0 0!important;
 						border: 0 solid #FFFFFF;
 						color: #fff;
 						height: 30px;
@@ -500,9 +500,9 @@ div#homepageTemplate_ #categoryHeader
 	padding:10px 0 10px 15px;
 }
 
-div#homepageTemplate_ div.slideShowContainer
-{
-	padding-top: 42px;
+div#homepageTemplate_ div.slideShowContainer {
+    margin: 0 0 0 -10px;
+    padding-top: 12px;
 }
 
 div.catName
@@ -715,4 +715,59 @@ img.hrcImg
     font-size: 18px;
     padding: 10px 0;
 	color:#fff;
+}
+.imageContainer .pointer{border: 1px solid #EEEEEE;}
+
+.ui-widget-header{background:url("../../img/content_head.jpg") repeat-x scroll 0 0 #063B79;}
+
+input[type="submit"].ui-button, button.ui-button{
+ background: url(../../img/button.jpg) repeat-x scroll 0 0 transparent !important;
+    border-radius: 7px 7px 7px 7px;
+    color: #FFFFFF!important;
+    height: 30px !important;
+    line-height: 30px;
+    padding: 0 10px !important;
+    text-align: center;
+    width: auto;	
+	border: 1px solid #333333!important;
+}
+
+.product_left {
+    width: 227px;
+}
+
+.prodSummaryContainer h1{margin-bottom:15px;}
+.prodSummaryContainer h5{font-size:14px; margin-bottom:10px; font-weight:normal;}
+.priceContainer{color:#1354A2;}
+.basePrice{font-size:18px;}
+.zform_number {
+    border: 1px solid #DDDDDD;
+    text-align: center;
+    width: 50px;
+}
+.zform_number {
+    border: 1px solid #DDDDDD;
+    text-align: center;
+    width: 50px;
+}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited{color:#1354A2;}
+.ui-tabs .ui-tabs-nav li a{font-size:14px;}
+.tabs  .ui-state-active, .ui-widget-content .tabs .ui-state-active, .ui-widget-header .tabs .ui-state-active{top:2px!important;}
+
+.CRMButtonMenu a {
+    color: #000000;
+    font-size: 14px;
+}
+.ui-widget{font-family:Arial, Helvetica, sans-serif; font-size:14px;}
+
+.tabContent ul li {
+    list-style: disc outside none;
+    margin-left: 10px;
+    padding: 5px 0;
+}
+#reviewFrm label{margin-right:10px;}
+
+#reviewFrm input, #reviewFrm textarea, #reviewFrm select {
+    border: 1px solid #CCCCCC;
+    margin-bottom: 5px;
 }
