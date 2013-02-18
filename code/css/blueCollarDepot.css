@@ -407,7 +407,7 @@ div#footer
 		position: relative;
 		margin:0 auto;
 		
-		height: 260px;
+		height: 340px;
 		text-align: left;
 		z-index: auto;
 		
@@ -463,9 +463,9 @@ div#footer
 				color: #FFFFFF;
 				font-family: arial;
 				font-size: 12px;
-				display:block;
+				display:inline-block;
 				clear:both;
-				margin:10px 0 0 30px;
+				margin:100px 0 0 30px;
 			}
 			
 div#homepageTemplate_
@@ -674,6 +674,45 @@ img.hrcImg
 
 #mainContentArea{padding:0 10px;}
 
-#copyright a {
+.footer-bottom .footer_brands {
+    margin-right: 55px;
+	float:right;
+    width: 235px;
+    z-index: 1;
+	clear:both;
+	margin-top:10px;
+}
+.footer_fb {
+    float: right;
+    padding: 0 65px 0 10px;
+    width: 225px;
+	margin-top:-20px;
+	color:#fff;
+}
+
+.footer_fb a {
     color: #FFFFFF;
+    font-size: 14px;
+    margin: 0 10px 0 0;
+    text-decoration: none;
+}
+.footer-bottom .footer_brands ul {
+    float: left;
+    margin: 10px 0 20px;
+    padding: 0;
+}
+.footer-bottom .footer_brands ul li {
+    background: url("../../img/footer_brand_bg.png") no-repeat scroll 0 0 transparent;
+    float: left;
+    height: 49px;
+    list-style: none outside none;
+    margin: 0 5px;
+    text-align: center;
+    width: 48px;
+}
+.footer_block_title {
+    background: url("../../img/footer_head_border.jpg") repeat-x scroll 0 bottom transparent;
+    font-size: 18px;
+    padding: 10px 0;
+	color:#fff;
 }
