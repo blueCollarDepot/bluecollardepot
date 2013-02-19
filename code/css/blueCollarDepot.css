@@ -364,6 +364,7 @@ div#footer
 					{				
 						width: 180px;
 						margin:5px 0 0 0;
+						float:left;
 					}
 					div#footer div#footModals div.footModal div input#btnSubmit
 					{
@@ -856,3 +857,4 @@ margin: 0 0 10px;
 	border-radius: 5px 5px 5px 5px;
 }
 .productListTemplate .prodThumbContainer{height:120px;}
+.tabContent p{padding-bottom:10px;}
