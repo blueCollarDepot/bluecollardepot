@@ -856,5 +856,6 @@ margin: 0 0 10px;
     width: 250px;
 	border-radius: 5px 5px 5px 5px;
 }
-.product_right ul li .prodThumbContainer{min-height:120px;}
+.prodThumbContainer{min-height:120px;}
 .tabContent p{padding-bottom:10px;}
+.quickView{line-height:28px!important;}
