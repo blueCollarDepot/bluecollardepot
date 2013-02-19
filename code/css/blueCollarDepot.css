@@ -725,7 +725,7 @@ img.hrcImg
 
 .ui-widget-header, .mpControls{background:url("../../img/content_head.jpg") repeat-x scroll 0 0 #063B79;}
 .mpControls{padding:10px; color:#fff;}
-input[type="submit"].ui-button, button.ui-button{
+input[type="submit"].ui-button, button.ui-button, .quickView{
  background: url(../../img/button.jpg) repeat-x scroll 0 0 transparent !important;
     border-radius: 7px 7px 7px 7px;
     color: #FFFFFF!important;
@@ -856,5 +856,5 @@ margin: 0 0 10px;
     width: 250px;
 	border-radius: 5px 5px 5px 5px;
 }
-.product_right ul li.prodThumbContainer{min-height:120px;}
+.product_right ul li .prodThumbContainer{min-height:120px;}
 .tabContent p{padding-bottom:10px;}
