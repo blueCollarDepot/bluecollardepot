@@ -639,17 +639,35 @@ this will likely become more flexible in the future. ###
 
 
 <div id='productTemplate'>
+
 <ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 <table>
   <tr>
     <td class="product_left">
-		<ul data-bind="var: product(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
+		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
 		
 <!-- MENU
 FORMAT=<a href="%URL%" target="%TARGET%">%MESSAGE%</a><br>
 ONLYHOME=0
 NOHOME=1
 -->
+<ul>
+<li id='categoryListTemplate'>
+	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
+		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>
+		<div class='catName white2LGray'><span data-bind='var: category(pretty); format:text;'></span></div>
+	</div>
+</li>
+
+
+<li id='categoryListTemplateRootCats'>
+	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
+		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='35' height='35' /></div>
+		<div class='catName'><span data-bind='var: category(pretty); format:text;'></span></div>
+	</div>
+</li>
+
+</ul>
 	</td>
 	<td class="product_right"><table class='prodViewerContainer'>
 <tr>
@@ -685,8 +703,8 @@ NOHOME=1
 	
 	
 	<div class='priceContainer'>
-		<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: Our Price: ;'></h4>
 		<h5 class='prodMSRP' data-bind='var: product(zoovy:prod_msrp); format:money; currencySign: $;  hideZero:true; pretext: MSRP: ;'></h5>
+		<h4 class='basePrice' data-bind='var: product(zoovy:base_price); format:money; currencySign: $;  hideZero:true; pretext: Our Price: ;'></h4>
 		<span class='savings'>
 			<span class='savingsDifference' data-bind='var: product(pid); format:priceRetailSavingsDifference; extension:myRIA; pretext: You save: ;'></span>
 			<span class='savingsPercentage' data-bind='var: product(pid); format:priceRetailSavingsPercentage; extension:myRIA; pretext: (; posttext:);'></span>

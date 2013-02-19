@@ -740,7 +740,11 @@ input[type="submit"].ui-button, button.ui-button{
 .prodSummaryContainer h1{margin-bottom:15px;}
 .prodSummaryContainer h5{font-size:14px; margin-bottom:10px; font-weight:normal;}
 .priceContainer{color:#1354A2;}
-.basePrice{font-size:18px;}
+
+.basePrice {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
 .zform_number {
     border: 1px solid #DDDDDD;
     text-align: center;
@@ -772,3 +776,20 @@ input[type="submit"].ui-button, button.ui-button{
     border: 1px solid #CCCCCC;
     margin-bottom: 5px;
 }
+
+.prodSummaryContainer .prodMSRP {
+    text-decoration: line-through;
+	color:#989696;
+	font-size:14px;
+}
+
+.savings {
+    display: block;
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+.prodSummaryContainer label {
+    font-weight: bold;
+	font-size:12px;
+}
+.ui-tabs .ui-tabs-panel{padding:10px!important;}
