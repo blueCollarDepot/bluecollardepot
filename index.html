@@ -76,8 +76,9 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 <div id='appPreView'>
 <table>
 <tr>
-	<td><!-- put logo here 
-    <img src="img/BlueCollarDepot_D04a3a1_a.gif" width="389" height="233" alt="img">--></td>
+	<td> <img src="img/blue-collar-depot-logo.png" alt="Blue Collar Depot Logo" /></td>
+</tr>
+<tr>
 	<td>
 	<h3>One moment please.</h3> 
 	
@@ -213,7 +214,10 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 		
 		<div id="content">
 			<div id="contentBody">
+				<!-- used to display a category within a 'list', usually in the body of a category or the homepage. -->
+				<div class="global_categorylist">
 				
+				</div>
 				<!-- VIEW CONTENT -->
 				<!-- leave the appView div, put your your html here ...  -->
 				
@@ -345,18 +349,18 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 						</div>
 						<div class="footer-bottom">
 						<div class="footer_bot">
-<p class="footer_fb"><a href="#"><img alt="" src="img/footer_fb.png"></a><a href="#"><span>VISIT US ON FACEBOOK!</span></a></p>
-</div>
-						<div class="footer_brands">
-<div class="footer_block_title"><span>Our Brands</span></div>
-<ul>
-<li><a href="#"><img alt="" src="img/footer_bulwark_logo.png"></a></li>
-<li><a href="#"><img alt="" src="img/footer_chef_logo.png"></a></li>
-<li><a href="#"><img alt="" src="img/footer_redkap_logo.png"></a></li>
-<li><a href="#"><img alt="" src="img/footer_horace_logo.png"></a></li>
-</ul>
-</div>
-</div>
+							<p class="footer_fb"><a href="#"><img alt="" src="img/footer_fb.png"></a><a href="#"><span>VISIT US ON FACEBOOK!</span></a></p>
+							</div>
+													<div class="footer_brands">
+							<div class="footer_block_title"><span>Our Brands</span></div>
+							<ul>
+							<li><a href="#"><img alt="" src="img/footer_bulwark_logo.png"></a></li>
+							<li><a href="#"><img alt="" src="img/footer_chef_logo.png"></a></li>
+							<li><a href="#"><img alt="" src="img/footer_redkap_logo.png"></a></li>
+							<li><a href="#"><img alt="" src="img/footer_horace_logo.png"></a></li>
+							</ul>
+							</div>
+						</div>
 											<p id="copyright">All prices are in USD. Copyright &copy; 2012.	</p>
 				</div>
 			</div>
@@ -413,8 +417,7 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 					<a class="slideForwardButton" href="#"><img src="img/blue-collar-depot-slideshow-button-forward.png" alt="Blue Collar Depot Slideshow Forward Button" /></a>		
 				</div>
 	<div class="homeProducts">
-		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'><li id="categoryHeader">CATEGORIES</li></ul>
-		
+			<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'><li id="categoryHeader">CATEGORIES</li></ul>
 		<!--<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; hide_summary:1; before:<h2>Featured Items</h2>; withReviews:1;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 		<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>-->
 		<div id="bestSellerItems">
@@ -427,63 +430,108 @@ the homepageTemplate template is loaded into mainContentArea by default when the
 </div>
 
 
-
-
-
-
-
-
-
-
 <!--
 used to organize content when a category is clicked.
 each of the 'sections' are used to load another template. don't change the id.
 don't modify the 'data-templateid' unless you are changing template names and updating everywhere appropriate.
 -->
-<div id='categoryTemplate' class='loadingBG'>
+<div id='categoryTemplate' class='loadingBG catpage'>
 
-	<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-	
+<table style="display:block; clear:both;">
+  <tr>
+    <td class="product_left">
+	<div id="global_cat">
+					<div class="store_cat">
+			<ul class="listStyleNone fluidList clearfix noPadOrMargin categoryList" ><li id="categoryHeader">CATEGORIES</li><li id="automotiveuniforms" data-templateid="categoryListTemplate" data-id=".automotive-uniforms" data-catsafeid=".automotive-uniforms">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Automotive Uniforms</div>
+	</div>
+</li><li id="belts_and_hats" data-templateid="categoryListTemplate" data-id=".belts_and_hats" data-catsafeid=".belts_and_hats">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Belts and Hats</div>
+	</div>
+</li><li id="chefkitchen" data-templateid="categoryListTemplate" data-id=".chef-kitchen" data-catsafeid=".chef-kitchen">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Chef and Kitchen</div>
+	</div>
+</li><li id="coverallsoveralls" data-templateid="categoryListTemplate" data-id=".coveralls-overalls" data-catsafeid=".coveralls-overalls">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Coveralls and Overalls</div>
+	</div>
+</li><li id="fr__flame_resistant" data-templateid="categoryListTemplate" data-id=".fr_-_flame_resistant" data-catsafeid=".fr_-_flame_resistant">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">FR - Flame Resistant</div>
+	</div>
+</li><li id="hivisibility" data-templateid="categoryListTemplate" data-id=".hi-visibility" data-catsafeid=".hi-visibility">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Hi Visibility</div>
+	</div>
+</li><li id="hotelhousekeeping" data-templateid="categoryListTemplate" data-id=".hotel-housekeeping" data-catsafeid=".hotel-housekeeping">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Hotel Housekeeping</div>
+	</div>
+</li><li id="industrial" data-templateid="categoryListTemplate" data-id=".industrial" data-catsafeid=".industrial">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Industrial Workwear</div>
+	</div>
+</li><li id="jacketcoats" data-templateid="categoryListTemplate" data-id=".jacket-coats" data-catsafeid=".jacket-coats">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Jackets &amp; Vests</div>
+	</div>
+</li><li id="labcoats" data-templateid="categoryListTemplate" data-id=".lab-coats" data-catsafeid=".lab-coats">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Medical Lab Coats</div>
+	</div>
+</li><li id="pants" data-templateid="categoryListTemplate" data-id=".pants" data-catsafeid=".pants">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Pants</div>
+	</div>
+</li><li id="rasco_fr_clothing" data-templateid="categoryListTemplate" data-id=".rasco_fr_clothing" data-catsafeid=".rasco_fr_clothing">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Rasco FR Clothing</div>
+	</div>
+</li><li id="securitypolice" data-templateid="categoryListTemplate" data-id=".security-police" data-catsafeid=".security-police">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Security and Police</div>
+	</div>
+</li><li id="shirts" data-templateid="categoryListTemplate" data-id=".shirts" data-catsafeid=".shirts">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Shirts</div>
+	</div>
+</li><li id="shopesdlabcoats" data-templateid="categoryListTemplate" data-id=".shop-esd-lab-coats" data-catsafeid=".shop-esd-lab-coats">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Shop, Esd, Lab Coats</div>
+	</div>
+</li><li id="shorts" data-templateid="categoryListTemplate" data-id=".shorts" data-catsafeid=".shorts">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Shorts</div>
+	</div>
+</li><li id="workouterwear" data-templateid="categoryListTemplate" data-id=".work-outerwear" data-catsafeid=".work-outerwear">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Wrangler Workwear</div>
+	</div>
+</li></ul>
+		</div>
+	</div>
+	</td>
+	<td class="product_right">
+	<ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 	<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
 
 	<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
 	
 	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-	
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
-
+	<div class="categoryList subcat_list">
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin'></ul>
+</div>
 	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 	
 	<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
 
-		
+	</td>
+	</tr>
+	</table>	
 </div>
-
-
-
-
-
-
-
-<!-- used to display a category within a 'list', usually in the body of a category or the homepage. -->
-<ul>
-<li id='categoryListTemplate'>
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>
-		<div class='catName white2LGray'><span data-bind='var: category(pretty); format:text;'></span></div>
-	</div>
-</li>
-
-
-<li id='categoryListTemplateRootCats'>
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='35' height='35' /></div>
-		<div class='catName'><span data-bind='var: category(pretty); format:text;'></span></div>
-	</div>
-</li>
-
-</ul>
-
 
 
 <ul>
@@ -640,36 +688,93 @@ this will likely become more flexible in the future. ###
 
 <div id='productTemplate'>
 
-<ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
-<table>
+
+<table style="display:inline-block;">
   <tr>
     <td class="product_left">
-		<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'></ul>
+		<div id="global_cat">
+					<div class="store_cat">
+			<ul class="listStyleNone fluidList clearfix noPadOrMargin categoryList" ><li id="categoryHeader">CATEGORIES</li><li id="automotiveuniforms" data-templateid="categoryListTemplate" data-id=".automotive-uniforms" data-catsafeid=".automotive-uniforms">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Automotive Uniforms</div>
+	</div>
+</li><li id="belts_and_hats" data-templateid="categoryListTemplate" data-id=".belts_and_hats" data-catsafeid=".belts_and_hats">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Belts and Hats</div>
+	</div>
+</li><li id="chefkitchen" data-templateid="categoryListTemplate" data-id=".chef-kitchen" data-catsafeid=".chef-kitchen">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Chef and Kitchen</div>
+	</div>
+</li><li id="coverallsoveralls" data-templateid="categoryListTemplate" data-id=".coveralls-overalls" data-catsafeid=".coveralls-overalls">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Coveralls and Overalls</div>
+	</div>
+</li><li id="fr__flame_resistant" data-templateid="categoryListTemplate" data-id=".fr_-_flame_resistant" data-catsafeid=".fr_-_flame_resistant">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">FR - Flame Resistant</div>
+	</div>
+</li><li id="hivisibility" data-templateid="categoryListTemplate" data-id=".hi-visibility" data-catsafeid=".hi-visibility">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Hi Visibility</div>
+	</div>
+</li><li id="hotelhousekeeping" data-templateid="categoryListTemplate" data-id=".hotel-housekeeping" data-catsafeid=".hotel-housekeeping">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Hotel Housekeeping</div>
+	</div>
+</li><li id="industrial" data-templateid="categoryListTemplate" data-id=".industrial" data-catsafeid=".industrial">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Industrial Workwear</div>
+	</div>
+</li><li id="jacketcoats" data-templateid="categoryListTemplate" data-id=".jacket-coats" data-catsafeid=".jacket-coats">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Jackets &amp; Vests</div>
+	</div>
+</li><li id="labcoats" data-templateid="categoryListTemplate" data-id=".lab-coats" data-catsafeid=".lab-coats">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Medical Lab Coats</div>
+	</div>
+</li><li id="pants" data-templateid="categoryListTemplate" data-id=".pants" data-catsafeid=".pants">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Pants</div>
+	</div>
+</li><li id="rasco_fr_clothing" data-templateid="categoryListTemplate" data-id=".rasco_fr_clothing" data-catsafeid=".rasco_fr_clothing">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Rasco FR Clothing</div>
+	</div>
+</li><li id="securitypolice" data-templateid="categoryListTemplate" data-id=".security-police" data-catsafeid=".security-police">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Security and Police</div>
+	</div>
+</li><li id="shirts" data-templateid="categoryListTemplate" data-id=".shirts" data-catsafeid=".shirts">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Shirts</div>
+	</div>
+</li><li id="shopesdlabcoats" data-templateid="categoryListTemplate" data-id=".shop-esd-lab-coats" data-catsafeid=".shop-esd-lab-coats">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Shop, Esd, Lab Coats</div>
+	</div>
+</li><li id="shorts" data-templateid="categoryListTemplate" data-id=".shorts" data-catsafeid=".shorts">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Shorts</div>
+	</div>
+</li><li id="workouterwear" data-templateid="categoryListTemplate" data-id=".work-outerwear" data-catsafeid=".work-outerwear">
+	<div class="pointer" onclick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});">
+		<div class="catName white2LGray">Wrangler Workwear</div>
+	</div>
+</li></ul>
+		</div>
+	</div>
 		
 <!-- MENU
 FORMAT=<a href="%URL%" target="%TARGET%">%MESSAGE%</a><br>
 ONLYHOME=0
 NOHOME=1
 -->
-<ul>
-<li id='categoryListTemplate'>
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>
-		<div class='catName white2LGray'><span data-bind='var: category(pretty); format:text;'></span></div>
-	</div>
-</li>
-
-
-<li id='categoryListTemplateRootCats'>
-	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
-		<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='35' height='35' /></div>
-		<div class='catName'><span data-bind='var: category(pretty); format:text;'></span></div>
-	</div>
-</li>
-
-</ul>
 	</td>
-	<td class="product_right"><table class='prodViewerContainer'>
+	<td class="product_right">
+	<ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
+	<table class='prodViewerContainer'>
 <tr>
 	<td class='imageContainer'>
 <!--	<img src='%PROJECT_URL%/blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox;' width='340' height='340' /> -->
@@ -809,9 +914,6 @@ NOHOME=1
 
 </div><!-- productTemplate -->
 
-
-
-
 <!-- a template used for a quickview link off of a category page -->
 <div id='productTemplateQuickView'>
 
@@ -915,11 +1017,10 @@ adding classes is not likely to have any bad effects.
 
 
 <!--  used in breadcrumb -->
-<ul>
+
 	<li id='breadcrumbTemplate'>
 	<a href='#' onClick="return showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" data-bind='var: category(pretty); format:text;'></a>
 	</li>
-</ul>
 
 
 
@@ -1209,24 +1310,22 @@ onclicks are recursive, so only add it to the parent element.
 </div><!-- /#mpControlSpec -->
 
 
+<!-- used to display a category within a 'list', usually in the body of a category or the homepage. -->
+
+<li id='categoryListTemplate'>
+	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
+		<!--<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='120' height='120' /></div>-->
+		<div class='catName white2LGray'><span data-bind='var: category(pretty); format:text;'></span></div>
+	</div>
+</li>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<li id='categoryListTemplateRootCats'>
+	<div onClick="showContent('category',{'navcat':$(this).parent().attr('data-catsafeid')});" class='pointer'>
+		<!--<div class='thumbContainer'><img src='blank.gif' class='catThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;' width='35' height='35' /></div>-->
+		<div class='catName'><span data-bind='var: category(pretty); format:text;'></span></div>
+	</div>
+</li>
 
 <!--
 used for store_cart.js
