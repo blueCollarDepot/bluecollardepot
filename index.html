@@ -12,7 +12,7 @@
 <meta property="og:description" content="" id='ogDescription' />
 
 
-<base href='http://www.55ba36a5fb.pop.zoovy.net/' /><!-- leave blank so it works for a local file -->
+<base href='http://www.9beeda.hoth.zoovy.net/' /><!-- leave blank so it works for a local file -->
 
 
 
@@ -22,10 +22,10 @@ var myCreole;
 
 
 var app = {vars:{ 
-	"release":"20130218232600",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
+	"release":"20130228223800",  //increment this with each change. should solve caching issues. format: YYYYMMDDHHMMSS
 	"baseURL":"",
-	"httpsURL":"https://ssl.zoovy.com/s=www.55ba36a5fb.pop.zoovy.net/",
-	"httpURL":"http://www.55ba36a5fb.pop.zoovy.net/"
+	"httpsURL":"https://ssl.zoovy.com/s=www.9beeda.hoth.zoovy.net/",
+	"httpURL":"http://www.9beeda.hoth.zoovy.net/"
 	},u:{},rq:[]};
 
 	
@@ -70,8 +70,6 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 </head>
 
 <body >
-<!-- DELETE THIS WHEN YOU GET STARTED -->
-<!-- /DELETE THIS WHEN YOU GET STARTED -->
 <!-- what is displayed onLoad until the view is loaded -->
 <div id='appPreView'>
 <table>
@@ -278,16 +276,8 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 													<input id="btnSubmit" type="submit" value="Subscribe" class="ui-button-text ui-button ui-state-default ui-corner-all" />		
 												</td>
 											</tr>
-											
-													
-												
 										</table>
 									</fieldset>
-									
-								
-									
-									
-	
 								</form>
 							</div>
 						</div>
@@ -364,16 +354,6 @@ app.u.loadScript(app.vars.baseURL+"init.js");
 		</div>
 	</div>
 </div>
-
-
-
-
-
-
-
-
-
-
 <!-- 
 *************************************************************************************************************
 **
@@ -437,6 +417,7 @@ don't modify the 'data-templateid' unless you are changing template names and up
 <table style="display:block; clear:both;">
   <tr>
     <td class="product_left">
+	
 	<div id="global_cat">
 					<div class="store_cat">
 			<ul class="listStyleNone fluidList clearfix noPadOrMargin categoryList" ><li id="categoryHeader">CATEGORIES</li><li id="automotiveuniforms" data-templateid="categoryListTemplate" data-id=".automotive-uniforms" data-catsafeid=".automotive-uniforms">
@@ -509,18 +490,26 @@ don't modify the 'data-templateid' unless you are changing template names and up
 	</div>
 </li></ul>
 		</div>
+		<ul>
+<!-- a sample category template. -->
+<li id='categoryThumbTemplate'>
+        <img class='prodThumb' data-bind='var: category(%meta.CAT_THUMB); format:imageURL;'  />
+        <div class='prodName' data-bind='var: category(pretty); format:text;'></div>
+</li>
+</ul>
+
+</div>
+<ul data-bind="var: List(@appCategoryList); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList'><li id="categoryHeader">CATEGORIES</li></ul>
 	</div>
 	</td>
 	<td class="product_right">
 	<ul class='clearfix noPadOrMargin fluidList breadcrumb' data-bind='var: session(session.recentCategories.0); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 	<img data-bind="var: category(%page.banner1); format: banner; editor: banner; height:250; width:750; extension: myRIA;" />
 
-	<h2 data-bind="var: category(%page.header); format: text; editor: text;"></h2>
+	<h2 class="cat_title" data-bind='var: category(pretty); format:text;'></h2>
 	
 	<p data-bind="var: category(%page.description); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
-	<div class="categoryList subcat_list">
-	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin'></ul>
-</div>
+	<ul data-bind="var: category(@subcategoryDetail); format: categoryList; extension: store_navcats; loadsTemplate: categoryListTemplate; detail:max;" class='listStyleNone fluidList clearfix noPadOrMargin categoryList subcat_list'></ul>
 	<ul data-bind="var: category(@products); format: productList; editor: finder; extension: store_prodlist; loadsTemplate: productListTemplate; withReviews:1; items_per_page: 25;" class='listStyleNone fluidList clearfix noPadOrMargin productList'></ul>
 	
 	<p data-bind="var: category(%page.description2); format:wiki; wikiFormats:myRIA; editor: textarea;"></p>
@@ -531,16 +520,13 @@ don't modify the 'data-templateid' unless you are changing template names and up
 </div>
 
 
-<ul>
-
-<ul class='breadcrumb clearfix noPadOrMargin fluidList' data-bind='var: category(id); format:breadcrumb; extension:store_navcats; loadsTemplate: breadcrumbTemplate;'></ul>
 <!--
 Used for the product in a product list (prodlist), usually in the body of a category or the homepage.
 the loadingBG class is removed (must be that classname) when the template is translated.
 remember to NOT put the button inside the 'onclick' container or two events will occur onclick.
 -->
 
-<li id='productListTemplate' class='loadingBG  ' onMouseOver="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
+<li id='productListTemplate' class='loadingBG  ' OnClick="$('.quickView',$(this)).show();" onMouseOut="$('.quickView').hide();" >
 	
 	<button class='floatRight pointer quickView displayNone' onClick="quickView('product',{'templateID':'productTemplateQuickView','pid':$(this).closest('[data-pid]').attr('data-pid')});">Quickview</button>
 	
@@ -627,13 +613,6 @@ container ul should have lineItemProdlist class on it instead of productList
 
 	</div>
 </li>
-
-
-</ul>
-
-
-
-
 
 <ul>
 <!--
@@ -774,13 +753,14 @@ NOHOME=1
 	<table class='prodViewerContainer'>
 <tr>
 	<td class='imageContainer'>
-<!--	<img src='%PROJECT_URL%/blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox;' width='340' height='340' /> -->
+	<!--<img src='%PROJECT_URL%/blank.gif' id='bobWasHere' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format: magicZoomPlus; extension: magicToolBox;' width='340' height='340' /> -->
 	
 <div onClick='app.ext.store_product.u.showPicsInModal({"pid":$(this).attr("data-pid")});' class='pointer clearfix'  data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;'>
 
 	<div data-bind="var: product(zoovy:prod_is_tags); format:addTagSpans;" class='tagsContainer'></div>
 	<img src='blank.gif' class='prodBigImage' data-bind='var: product(zoovy:prod_image1); format:imageURL;' width='290' height='290' />
 	<img class="hrcImg" src='blank.gif' data-bind="var: product(user:prod_hazardrisk); format:hrcImgFormat;" />
+	
 </div>
 
 	<div data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='prodThumbs'>
@@ -836,6 +816,207 @@ NOHOME=1
 		<span data-bind='var: reviews(total); format:text;posttext: from ;posttext: reviews; className:numReviews;'></span>
 	</section>
 	
+	<div id="prod_customize" style="display:none;" title="Customize ">
+		<div class="custom_product_wrap">
+		<h2>Bulwark Flame Resistant Deluxe Coverall Royal Blue Excel FR ComforTouch 9oz</h2>
+    	<div class="custom_product_lt">
+        	<div class="custom_image_container">
+            	<img src="images/products/clb6rb.jpg" width="500" height="500" alt="" title="" name="imgmain" />
+                <div class="custom_reflective_strp">
+                	<ul class="front_stripe">
+                    	<li id="plc_f"><img alt="" src="images/reflective_stripes/plc_f.png" border="0"></li>
+                        <li id="blc_f"><img alt="" src="images/reflective_stripes/blc_f.png" border="0"></li>
+                        <li id="plk_f"><img alt="" src="images/reflective_stripes/plk_f.png" border="0"></li>
+                        <li id="blt_f"><img alt="" src="images/reflective_stripes/blt_f.png" border="0"></li>
+						<li id="bsf_f"><img alt="" src="images/reflective_stripes/bsf_f.png" border="0"></li>
+                    </ul>
+					<ul class="back_stripe" >
+                    	<li id="plc_b"><img alt="" src="images/reflective_stripes/plc_b.png" border="0"></li>
+                        <li id="blc_b"><img alt="" src="images/reflective_stripes/blc_b.png" border="0"></li>
+                        <li id="plk_b"><img alt="" src="images/reflective_stripes/plk_b.png" border="0"></li>
+                        <li id="blt_b"><img alt="" src="images/reflective_stripes/blt_b.png" border="0"></li>
+						<li id="bsf_b"><img alt="" src="images/reflective_stripes/bsf_b.png" border="0"></li>
+                    </ul>
+                </div>
+                <div class="custom_image_rotate">
+                    <button name="clb6rb_b" id="custom_back">Back</button>
+                    <button name="clb6rb" id="custom_front">Front</button>
+                </div>
+            </div>
+            <div class="custom_other_images">
+            	<ul>
+                    <li><a href="#" name="ceb2gy"><img alt="" src="images/products/ceb2gy.jpg" border="0" height="75" width="70"></a></li>
+                    <li><a href="#" name="ceb2rd"><img alt="" src="images/products/ceb2rd.jpg" border="0" height="75" width="70"></a></li>
+                    <li><a href="#" name="ced2or"><img alt="" src="images/products/ced2or.jpg" border="0" height="75" width="70"></a></li>
+                    <li><a href="#" name="clb6kh"><img alt="" src="images/products/clb6kh.jpg" border="0" height="75" width="70"></a></li>
+                    <li><a href="#" name="clb6nv"><img alt="" src="images/products/clb6nv.jpg" border="0" height="75" width="70"></a></li>
+                    <li><a href="#" name="clb6rb"><img alt="" src="images/products/clb6rb.jpg" border="0" height="75" width="70"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="custom_product_rt">
+        	<h3>Add Reflective Stripes</h3>
+        	<ul>
+            	 <li class="custom_price">
+                	<label>Price : </label>$<span>1</span>
+                </li>
+                <li class="custom_product_size">
+                    <label>Choose your desired Size :</label>
+                    <select class="custom_size">
+                        <optgroup>
+                            <option value="0">Select the Size</option>
+                            <option value="0">38 Regular</option>
+                            <option value="0">38 Tall</option>
+                            <option value="2">40 Regular (+ $2)</option>
+                            <option value="3">40 Tall (+ $3)</option>
+                            <option value="4">42 Regular (+ $4)</option>
+                            <option value="5">42 Tall (+ $5)</option>
+                            <option value="6">44 Regular (+ $6)</option>
+                            <option value="7">44 Tall (+ $7)</option>
+                            <option value="8">46 Regular (+ $8)</option>
+                            <option value="9">46 Tall (+ $9)</option>
+                            <option value="10">48 Regular (+ $10)</option>
+                            <option value="11">48 Tall (+ $11)</option>
+                            <option value="12">50 Regular (+ $12)</option>
+                            <option value="13">50 Tall (+ $13)</option>
+                        </optgroup>
+                    </select>
+                </li>
+				<li class="custom_product_size_sel">
+                    <label>Selected Size :</label>
+                    <span></span>
+					<small>X</small>
+                </li>
+                <li class="custom_product_position">
+                    <label>Choose your desired Position :</label>
+                    <select class="custom_stripes_positon">
+                        <optgroup>
+                            <option value="stripnone">Select the Position</option>
+                            <option value="bsf">BSF - Both Sleeves Forearms</option>
+                            <option value="blt">BLT - Both Legs Thigh</option>
+                            <option value="plk">PLK - Pant Leg Knee</option>
+                            <option value="blc">BLC - Both Legs Calf</option>
+                            <option value="plc">PLC - Pant Leg Cuff</option>
+                        </optgroup>
+                    </select>
+                </li>
+				<li class="selected_options">
+					<label>Selected Position :</label>
+					<div class="selected_options_list">
+					
+					</div>
+				</li>
+            </ul>
+        </div>
+    </div>	
+		</div>
+		<a href='#' id="customize_but"  style="background:#084b9a; -moz-border-radius: 5px; border-radius:5px; border:1px solid #04448e; color:#fff; font-size:12px; font-weight:bold; padding:5px 10px; cursor:pointer; margin:10px;">Customize</a>
+		<script type="text/javascript">
+			 $( "#customize_but" ).click(function() {
+				$( "#prod_customize" ).dialog({
+					height: 750,
+					width: 900,
+					modal: true
+					});
+				});
+		</script>
+		<script type="text/javascript">
+	// Front and Back
+	
+		$("#custom_back").click(function(e) {
+			  e.preventDefault();
+			  $(".front_stripe").css("display","none");		
+			  $(".back_stripe").css("display","block");	
+		});
+        $("#custom_front").click(function(e) {
+			  e.preventDefault();
+			  $(".back_stripe").css("display","none");
+			  $(".front_stripe").css("display","block");
+		});
+		
+	// Color and Image
+		$(".custom_other_images ul li a").click(function(e) {
+			  e.preventDefault();
+			  var title = $(this).attr("name");
+			  //alert(title);
+			  
+			  if($(".back_stripe").css('display') == "block"){
+			  	imgmain.src="images/products/" + title + "_b.jpg";
+			  }else{
+			    imgmain.src="images/products/" + title + ".jpg";
+			  }
+			  
+			  $("#custom_back").attr('name',title+'_b');
+			  $("#custom_front").attr('name',title);
+		});
+		$(".custom_image_container button").click(function(e) {
+			  e.preventDefault();
+			  var title1 = $(this).attr("name");
+			  //alert(title1);
+			  imgmain.src="images/products/" + title1 + ".jpg";
+		});
+	
+	// Reflective Stripes
+		
+		$(".custom_stripes_positon").change(function () {
+		var strp = "";
+		$(".custom_stripes_positon option:selected").each(function () {
+		strp += $(this).val();
+		});
+		//alert(str);
+		$(".custom_reflective_strp ul li#"+ strp +"_f").css("display","block");
+		$(".custom_reflective_strp ul li#"+ strp +"_b").css("display","block");
+		$(".custom_reflective_strp ul li#stripnone").css("display","none");
+		if ( $(".custom_stripes_positon option:selected").val() == strp ) {
+			var sel_opt = $(".custom_stripes_positon option:selected").text();
+			var sel_opt_val = $(".custom_stripes_positon option:selected").val();
+			$(".selected_options_list").append("<p><span id='sel_opt" + sel_opt_val + "'>" + sel_opt +"</span><small>X</small></p>");
+			$(".selected_options_list span#sel_opt" + sel_opt_val).html(sel_opt);
+			$(".custom_stripes_positon option:selected").remove();
+		}
+		
+		var current_price = $(".custom_price span").text();
+		var stripes_price=parseInt(current_price) + 2;
+		$(".custom_price span").html(stripes_price);
+		//alert(current_price);
+		})
+		.change();	
+		
+	// Size 
+		
+		$(".custom_size").change(function () {
+		var siz = "";
+		$(".custom_size option:selected").each(function () {
+		siz += $(this).val();
+		
+		 var sizeprice = parseInt(siz) + 1;
+		$(".custom_price span").html(sizeprice);
+		var sel_size = $(".custom_size option:selected").text();
+		$(".custom_product_size_sel span").html(sel_size);
+		$(".custom_product_size").css("display","none");
+		$(".custom_product_size_sel").css("display","block");
+		$(".custom_product_size_sel small").click(function(e) {
+			e.preventDefault();
+			var siz1 = "";
+			siz1 = $(".custom_size option:selected").val();
+			var size_current_price = $(".custom_price span").text();
+			alert(siz1);
+			var updatesizeprice = parseInt(size_current_price)-parseInt(siz);
+			$(".custom_price span").html(updatesizeprice);
+			$(".custom_product_size").css("display","block");
+			$(".custom_product_size_sel").css("display","none");
+			});
+			$(".custom_product_size").css("display","block");
+			$(".custom_product_size_sel").css("display","none");
+		});
+		//alert(sizeprice);
+		
+		//$(".custom_reflective_strp ul li#"+ siz +"_f").css("display","block");
+		})
+		.change();	
+		
+	</script>
+	</div>
 	<menu data-bind='var:product(pid);format:assignAttribute; attribute:data-pid;' class='CRMButtonMenu'>
 
 	<a href='#' onClick='app.ext.store_crm.u.showReviewFrmInModal({"pid":$(this).parent().attr("data-pid"),"templateID":"reviewFrmTemplate"}); return false;'>Write Review</a>	| 
@@ -1275,7 +1456,7 @@ onclicks are recursive, so only add it to the parent element.
 .mpControlsPagination is used to 'hide' the pagination portion of the header if pagination is disabled.
 -->
 
-<div id='mpControlSpec' class='mpControlContainer'>
+<div id='mpControlSpec' class='mpControlContainer mp_bot'>
 	<div class='mpControls ui-widget ui-state-default ui-corner-top'>
 
 <span class="mpControlsPagination ui-state-active ui-corner-all floatRight paging pointer" data-role='next' title="next page">

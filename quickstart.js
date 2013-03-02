@@ -64,24 +64,11 @@ var myRIA = function() {
 			"recentCategories" : []
 			} //a list of other extensions (just the namespace) that are required for this one to load
 		},
-
-
 					////////////////////////////////////   CALLS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\		
-
-
-
 	calls : {
 
 		}, //calls
-
-
-
-
 					////////////////////////////////////   CALLBACKS    \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-
-
-
 
 	callbacks : {
 		init : {
