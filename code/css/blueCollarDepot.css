@@ -892,7 +892,7 @@ margin: 0 0 10px;
 	.selected_options .selected_options_list{overflow-x:hidden; overflow-y:auto; height:373px;}
 	.selected_options p{padding:10px 0 10px 0; display:block; border-bottom:1px solid #ddd;}
 	.selected_options p small{float:right; cursor:pointer; background:#ddd; color:#000; font-family:Arial, Helvetica, sans-serif; font-size:12px; padding:0 5px; -moz-border-radius: 5px; border-radius:5px; line-height:18px; font-weight:bold; margin-right:10px; display:none;}
-	.custom_image_rotate button{background:#084b9a; -moz-border-radius: 5px; border-radius:5px; border:1px solid #04448e; color:#fff; font-size:12px; font-weight:bold; padding:5px 10px; cursor:pointer; margin:10px;}
+	.custom_image_rotate button{background:#084b9a; -moz-border-radius: 5px; border-radius:5px; border:1px solid #04448e; color:#fff; font-size:12px; font-weight:bold; padding:5px 10px; cursor:pointer; margin:0 10px; position:relative; bottom:10px;}
 	#sel_optstripnone{display:none;}
 	
 	/*************** Front Stripe *********************/
